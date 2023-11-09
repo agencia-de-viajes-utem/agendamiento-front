@@ -44,7 +44,9 @@ export default function BuscaViaje({ aeropuertos, onSubmit, placeholder, initial
     if (fecha.tipo === 'rango') {
       nuevaRespuesta = {
         origen_id: origen && origen.length > 0 ? origen[0].id : null,
+        origen_nombre: origen[0].nombre,
         destino_id: destino && destino.length > 0 ? destino[0].id : null,
+        destino_nombre: destino[0].nombre,
         fechaInit: fecha.fechaInicio,
         fechaFin: fecha.fechaFin,
         personas: pasajeros
@@ -52,7 +54,9 @@ export default function BuscaViaje({ aeropuertos, onSubmit, placeholder, initial
     } else {  // asumimos que fecha.tipo === 'mes'
       nuevaRespuesta = {
         origen_id: origen && origen.length > 0 ? origen[0].id : null,
+        origen_nombre: origen[0].nombre,
         destino_id: destino && destino.length > 0 ? destino[0].id : null,
+        destino_nombre: destino[0].nombre,
         mes: fecha.mes,
         personas: pasajeros
       };

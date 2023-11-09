@@ -34,6 +34,7 @@ const VerPaquetes = () => {
   const [anchoPantalla, setAnchoPantalla] = useState(window.innerWidth);
   const [isCollapseOpen, setIsCollapseOpen] = useState(false);
 
+  
   useEffect(() => {
     const actualizarAnchoDePantalla = () => {
       setAnchoPantalla(window.innerWidth);
@@ -131,6 +132,13 @@ const VerPaquetes = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  const placeholder = {
+    origen: ` ${respuesta.origen_nombre}`,
+    destino: ` ${respuesta.destino_nombre}`,
+    calendario: respuesta.mes ? `Mes: ${MesString(respuesta.mes)}` : `${respuesta.fechaInit} - ${respuesta.fechaFin}`,
+    pasajeros: `Pasajeros: ${respuesta.personas}`
+  };
+
   if (!paquetes || paquetes.length === 0) {
     return (
       <div>
@@ -141,6 +149,7 @@ const VerPaquetes = () => {
             onSubmit={handleBuscarViaje}
             initialValues={initialValues}
             className={"BuscaViajeVerPaquetes_"}
+            placeholder = {placeholder}
           />
         </div>
         <NoPaquetesDisp onNewSearch={filtrarPaquetes} showFilterButton={false} showFilterMessage={false} /> {/* Mostrar el mensaje de NoPaquetesDisp */}
@@ -149,12 +158,7 @@ const VerPaquetes = () => {
     );
   }
 
-  const placeholder = {
-    origen: ` ${paquetes[0].nombre_ciudad_origen}`,
-    destino: ` ${paquetes[0].nombre_ciudad_destino}`,
-    calendario: respuesta.mes ? `Mes: ${MesString(respuesta.mes)}` : `${respuesta.fechaInit} - ${respuesta.fechaFin}`,
-    pasajeros: `Pasajeros: ${respuesta.personas}`
-  };
+  
 
 
 
@@ -221,7 +225,10 @@ const VerPaquetes = () => {
       <Footer />
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Body>
-          <Filtros filtrarPaquetes={filtrarPaquetes} />
+          <Filtros
+           filtrarPaquetes={filtrarPaquetes} 
+           setShowModal = {setShowModal}
+           />
         </Modal.Body>
       </Modal>
     </>

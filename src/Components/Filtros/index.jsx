@@ -6,7 +6,7 @@ import './Filtros.css';
 
 import Estrellas from '../Estrellas';
 
-const Filtros = ({ filtrarPaquetes }) => {
+const Filtros = ({ filtrarPaquetes, setShowModal }) => {
     const [stars, setStars] = useState('');
     const [serviceTypes, setServiceTypes] = useState([]);
 
@@ -40,6 +40,7 @@ const Filtros = ({ filtrarPaquetes }) => {
     };
 
     const handleFilterClick = () => {
+        setShowModal(false);
         filtrarPaquetes(stars, serviceTypes);
     };
 
