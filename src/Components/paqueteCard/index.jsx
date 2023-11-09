@@ -3,7 +3,7 @@ import './paqueteCard.css';  // Asegúrate de tener el archivo CSS correspondien
 import Slider from 'react-slick'; // Importa el Slider de react-slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { renderStars, renderServiceIcons } from '../utils.jsx';
+import { renderStars, renderServiceIcons } from '../utils/index.jsx';
 
 
 const PaqueteCard = ({ paquete, handleBuy }) => {

@@ -1,22 +1,18 @@
-# Use an official Node.js runtime as the base image
-FROM node:20
+# Step 1: Choose the base image with the version of Node.js that suits your project
+FROM node:16
 
-ENV NODE_OPTIONS=--openssl-legacy-provider
-
-# Set the working directory in the container
+# Step 2: Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Step 3: Copy package.json and package-lock.json (or yarn.lock) to leverage Docker cache
 COPY package*.json ./
 
-# Install app dependencies
+# Step 4: Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Step 5: Copy the rest of your application code
 COPY . .
 
-# Expose the port your app will run on
-EXPOSE 3000
 
-# Define the command to run your app
+# Step 7: Define the command to run your app
 CMD ["npm", "run", "dev"]

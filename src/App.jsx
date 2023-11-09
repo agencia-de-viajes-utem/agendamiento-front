@@ -5,10 +5,10 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Home from './Pages/home/home.jsX'
-import NotFound from './pages/notFound/NotFound.jsx'; // Página para manejar rutas no encontradas
-import VerPaquetes from './Pages/verPaquetes/VerPaquetes.jsx'; // Página para manejar la lista de paquetes
-import VerDetalle from './Pages/verDetalle/VerDetalle.jsx'; // Página para manejar los detalles de un paquete
+import Home from './Pages/home'
+import NotFound from './Pages/notFound'; // Página para manejar rutas no encontradas
+import VerPaquetes from './Pages/verPaquetes'; // Página para manejar la lista de paquetes
+import VerDetalle from './Pages/verDetalle'; // Página para manejar los detalles de un paquete
 
 const App = () => {
   return (

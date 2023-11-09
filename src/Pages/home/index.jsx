@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getAeropuertos, getUbicacion, getOfertas ,agregarVista } from '../../api';
-import BuscaViaje from '../../Components/buscaViaje/BuscaViaje';
-import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
+import { getAeropuertos, getUbicacion, getOfertas, agregarVista } from '../../api';
+import BuscaViaje from '../../Components/buscaViaje';
+import LoadingSpinner from '../../Components/LoadingSpinner';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate desde react-router-dom
-import Carrusel from './carrusel/OfferCarousel'
+import Carrusel from './carrusel'
 
 
 import './Home.css';
@@ -13,8 +13,8 @@ import Header from '../../utils/Header';
 const Home = () => {
     const [aeropuertos, setAeropuertos] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [paquetesOfertas, setPaquetesOfertas]= useState([])
-    const [ubicacion, setUbicacion]= useState({Ciudad:''})
+    const [paquetesOfertas, setPaquetesOfertas] = useState([])
+    const [ubicacion, setUbicacion] = useState({ Ciudad: '' })
     const [error, setError] = useState(null);
     const navigate = useNavigate(); // Obtén la función de navegación
 
@@ -34,20 +34,20 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-      const fetchUbicacion = async () => {
-          try {
-              const data = await getUbicacion();
-              setUbicacion({ Ciudad: data.cityName });
-          } catch (error) {
+        const fetchUbicacion = async () => {
+            try {
+                const data = await getUbicacion();
+                setUbicacion({ Ciudad: data.cityName });
+            } catch (error) {
                 setError(error);
-           } finally {
-               setLoading(false);
+            } finally {
+                setLoading(false);
             }
         };
 
-         fetchUbicacion();
+        fetchUbicacion();
     }, []);
-  console.log(ubicacion)
+    console.log(ubicacion)
 
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const Home = () => {
         fetchOfertas();
     }, [ubicacion]);
 
- console.log(paquetesOfertas)
+    console.log(paquetesOfertas)
 
 
     const handleBuscarViaje = (respuesta) => {
@@ -107,7 +107,7 @@ const Home = () => {
         <div className="Home">
             <Header />
             <div className="Contenedor">
-                
+
                 <h1 className="Titulo">¡Busca tu viaje ahora!</h1>
                 <BuscaViaje
                     aeropuertos={aeropuertos}
@@ -115,32 +115,32 @@ const Home = () => {
                 />
             </div>
             <div className="carrusel">
-            
+
                 {paquetesOfertas != null ? (
                     <div className=''>
-                       <div className= " d-flex mt-4 mb-2 me-5 w-25 justify-content-end "><h1 className='text-end'>Ofertas</h1></div> 
-                        <Carrusel paquetes={paquetesOfertas} handleBuy = {handleComprar} />
-                   </div>
-                    
+                        <div className=" d-flex mt-4 mb-2 me-5 w-25 justify-content-end "><h1 className='text-end'>Ofertas</h1></div>
+                        <Carrusel paquetes={paquetesOfertas} handleBuy={handleComprar} />
+                    </div>
+
                 ) : (
                     <div className="d-flex align-items-center  justify-content-center">
-             <div className="mt-5 align-items-center w-50 ">
-              <h4 className='ms-4'>No se encontraron paquetes en tu ubicación 😒</h4>
-            </div>
-           <div className="d-flex">
-        <img src="/error.png" alt="yamsha" className="img-fluid" style={{ maxWidth: '60vh' }} />
-       </div>
-       </div>
-  
+                        <div className="mt-5 align-items-center w-50 ">
+                            <h4 className='ms-4'>No se encontraron paquetes en tu ubicación 😒</h4>
+                        </div>
+                        <div className="d-flex">
+                            <img src="/error.png" alt="yamsha" className="img-fluid" style={{ maxWidth: '60vh' }} />
+                        </div>
+                    </div>
+
                 )}
             </div>
 
             <footer>
-                <Footer/>
+                <Footer />
             </footer>
 
         </div>
-        
+
     );
 };
 

@@ -6,8 +6,8 @@ import { renderStars, formatFecha } from '../../../Components/utils';
 
 
 
-function OfferCard({ paquete, cardsToShow, VITE_PATH_IMAGES, handleBuy}) {
-  
+function OfferCard({ paquete, cardsToShow, VITE_PATH_IMAGES, handleBuy }) {
+
 
   // Limpia la cadena de imÃ¡genes, elimina corchetes y espacios en blanco
   const cleanedImages = paquete.imagenes ? paquete.imagenes.replace(/[{}]/g, '').split(',').map(image => image.trim()) : [];
@@ -17,13 +17,13 @@ function OfferCard({ paquete, cardsToShow, VITE_PATH_IMAGES, handleBuy}) {
 
   // Construye la URL completa de la primera imagen
   const imageUrl = `${VITE_PATH_IMAGES}${firstImage}`;
-  
-  
+
+
 
   return (
     <div className={`col-md-${12 / cardsToShow}  mt-2 mb-2 me-5 ms-5 `}>
-      <div className="card mb-2 " style={{ height: '100%', width:"350px" }}>
-        <img src={imageUrl} alt={paquete.title} className="card-img-top "  />
+      <div className="card mb-2 " style={{ height: '100%', width: "350px" }}>
+        <img src={imageUrl} alt={paquete.title} className="card-img-top " />
         <div className="card-body">
           <div className="Package-info">
           </div>
@@ -33,18 +33,18 @@ function OfferCard({ paquete, cardsToShow, VITE_PATH_IMAGES, handleBuy}) {
             {renderStars(paquete.info_paquete.hotel_info.valoracion_hotel)}
           </div>
           <div className="d-flex justify-content-between">
-          <div className="fecha"> <div className="d-flex justify-content-between ">
+            <div className="fecha"> <div className="d-flex justify-content-between ">
               <div className="bg-secondary text-white fw-bold rounded p-2 ida me-2">{formatFecha(paquete.fecha_init)} </div>
-              <div className="bg-primary text-white fw-bold rounded p-2"> {formatFecha(paquete.fecha_fin)}</div>  
+              <div className="bg-primary text-white fw-bold rounded p-2"> {formatFecha(paquete.fecha_fin)}</div>
             </div>
-            <div className="bg-secondary-subtle w-100 rounded fw-bold p-2 mt-1" style={{color :"black"}}> Para {paquete.total_personas} Personas</div>
+              <div className="bg-secondary-subtle w-100 rounded fw-bold p-2 mt-1" style={{ color: "black" }}> Para {paquete.total_personas} Personas</div>
             </div>
-          <div className="Information d-flex flex-column align-items-end">
-            <h3 className='text-secondary text-decoration-line-through'>${paquete.precio_vuelo}</h3>
-            <h3 className='fw-bold '>${paquete.precio_oferta_vuelo}</h3>
-          </div></div>
+            <div className="Information d-flex flex-column align-items-end">
+              <h3 className='text-secondary text-decoration-line-through'>${paquete.precio_vuelo}</h3>
+              <h3 className='fw-bold '>${paquete.precio_oferta_vuelo}</h3>
+            </div></div>
           <div className='d-flex justify-content-end'><button className="btn btn-primary btn-card " onClick={() => handleBuy(paquete)} >Ver Paquete</button></div>
-          
+
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ function OfferCarousel({ paquetes, handleBuy }) {
   const chunkedPaquetes = chunkArray(paquetes, cardsToShow);
 
   return (
-    <div className="offer"> 
+    <div className="offer">
       <div className="container" style={{}}>
         <Carousel interval={null}>
           {chunkedPaquetes.map((paqueteGroup, groupIndex) => (

@@ -3,15 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from '../../Components/loadingSpinner';
 import { getPaquetes, getPaquetesMes, agregarVista } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { Collapse, Modal, Button } from 'react-bootstrap';
 import { MesString } from '../../Components/utils';
 
-import BuscaViaje from '../../Components/buscaViaje/BuscaViaje';
-import ListaPaquetes from '../../Components/listaPaquetes/ListaPaquetes';
-import BotonOrdener from '../../Components/botonOrdenar/SortBy';
+import BuscaViaje from '../../Components/buscaViaje';
+import ListaPaquetes from '../../Components/listaPaquetes';
+import BotonOrdener from '../../Components/botonOrdenar';
 import Header from '../../utils/Header';
 import Footer from '../../utils/Footer';
 import Filtros from '../../Components/Filtros';
@@ -77,7 +77,7 @@ const VerPaquetes = () => {
   };
 
   const handleBuscarViaje = (respuesta) => {
-    
+
     const dataForNavigate = {
       respuesta,
       aeropuertos
@@ -143,7 +143,7 @@ const VerPaquetes = () => {
             className={"BuscaViajeVerPaquetes_"}
           />
         </div>
-        <NoPaquetesDisp onNewSearch={filtrarPaquetes} showFilterButton={false} showFilterMessage={false}/> {/* Mostrar el mensaje de NoPaquetesDisp */}
+        <NoPaquetesDisp onNewSearch={filtrarPaquetes} showFilterButton={false} showFilterMessage={false} /> {/* Mostrar el mensaje de NoPaquetesDisp */}
         <Footer /> {/* Mostrar el pie de página */}
       </div>
     );
@@ -202,7 +202,7 @@ const VerPaquetes = () => {
 
       <div className="VerListaPaquetes">
         {paquetesFiltrados.length === 0 ? ( // Comprueba si no hay paquetes disponibles
-          <NoPaquetesDisp onNewSearch={filtrarPaquetes} showFilterButton={true} showFilterMessage={true}/> // Muestra el mensaje cuando no hay paquetes
+          <NoPaquetesDisp onNewSearch={filtrarPaquetes} showFilterButton={true} showFilterMessage={true} /> // Muestra el mensaje cuando no hay paquetes
         ) : (
           <div className="col-md-12 mx-5 mr-5 mt-2 pl-5 ">
             <div className="Botones" >

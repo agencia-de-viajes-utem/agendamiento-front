@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import './buscaViaje.css';
 import { Collapse, Button, Modal } from 'react-bootstrap';
 
-import InputBusqueda from '../inputBusqueda/inputBusqueda';
-import CustomCalendar from '../customCalendar/customCalendar';
+import InputBusqueda from '../inputBusqueda';
+import CustomCalendar from '../customCalendar';
 
 
 export default function BuscaViaje({ aeropuertos, onSubmit, placeholder, initialValues, className }) {
@@ -151,16 +151,16 @@ export default function BuscaViaje({ aeropuertos, onSubmit, placeholder, initial
       </div>
 
       <Modal show={!!error} onHide={() => setError(null)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Error</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{error}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setError(null)}>
-                        Cerrar
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+        <Modal.Header closeButton>
+          <Modal.Title>Error</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{error}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setError(null)}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
     </>
   );

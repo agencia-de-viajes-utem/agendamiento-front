@@ -1,5 +1,5 @@
 import React from 'react';
-import PaqueteCard from '../paqueteCard/paqueteCard';
+import PaqueteCard from '../paqueteCard';
 
 import './listaPaquetes.css';
 
