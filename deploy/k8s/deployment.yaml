@@ -17,4 +17,4 @@ spec:
       - name: agendamiento-front
         image: gcr.io/annular-form-401215/gcr-alpine:{GITHUB_SHA}
         ports:
-        - containerPort: 9090
+        - containerPort: 3001
