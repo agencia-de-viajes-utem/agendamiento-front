@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         path: /
   tls:
-  hosts:
+  - hosts:
     - agendamiento.lumonidy.studio
-  secretName: agendamiento-secret
+    secretName: agendamiento-secret
