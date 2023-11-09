@@ -1,6 +1,6 @@
 // LoadingSpinner.jsx
 import React from 'react';
-import './LoadingSpinner.css'; // Archivo de estilos para personalizar la apariencia
+import './loadingSpinner.css'; // Archivo de estilos para personalizar la apariencia
 
 const LoadingSpinner = () => {
     return (

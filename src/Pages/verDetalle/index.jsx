@@ -8,7 +8,7 @@ import Header from '../../utils/Header'
 import 'react-image-gallery/styles/css/image-gallery.css';
 import { renderStars, renderServiceIcons } from '../../Components/utils';
 import TarjetaContacto from './tarjetaContacto';
-import './verDetalle.css';
+import './VerDetalle.css';
 import TarjetaDescripcion from './tarjetaDescripcion/tarjetaDescripcion.jsx';
 
 // Esta línea es necesaria para la accesibilidad del modal

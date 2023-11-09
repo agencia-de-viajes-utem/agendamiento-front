@@ -1,7 +1,7 @@
 import React from 'react';
 import PaqueteCard from '../paqueteCard';
 
-import './listaPaquetes.css';
+import './ListaPaquetes.css';
 
 const ListaPaquetes = ({ paquetes, onBuy }) => {
     const handleBuy = (paquete) => {

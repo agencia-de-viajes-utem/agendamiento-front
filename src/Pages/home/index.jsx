@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAeropuertos, getUbicacion, getOfertas, agregarVista } from '../../api';
 import BuscaViaje from '../../Components/buscaViaje';
-import LoadingSpinner from '../../Components/LoadingSpinner';
+import LoadingSpinner from '../../Components/loadingSpinner';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate desde react-router-dom
 import Carrusel from './carrusel'
 

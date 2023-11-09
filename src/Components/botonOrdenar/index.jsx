@@ -1,7 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, Button } from 'react-bootstrap';
-import './SortBy.css';
+import './Sortby.css';
 
 function SortBy({ paquetes, setPackages }) {
   const sortByPriceAsc = () => {
